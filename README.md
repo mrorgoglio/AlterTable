@@ -40,7 +40,7 @@ The array must be in the form:
 How to use it
 ============
 
-Requriments
+Requirements
 -----------
 
 * Yii 1.1 or above
