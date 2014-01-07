@@ -21,6 +21,12 @@ class AdvancedDbCommandBuilder extends CDbCommandBuilder {
 		$this->_connection=$schema->getDbConnection();
 	}
 	
+	/**
+	* Creates alter table command
+	*
+	* @param mixed $table the table schema ({@link CDbTableSchema}) or the table name (string)
+	* @param array $columns the columns to be added
+	*/
 	public function createAlterCommand($table,$columns)
     {
     	if (!is_array($columns))
