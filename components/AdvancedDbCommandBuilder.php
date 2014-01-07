@@ -29,33 +29,33 @@ class AdvancedDbCommandBuilder extends CDbCommandBuilder {
 	*/
 	public function createAlterCommand($table,$columns)
     {
-    	if (!is_array($columns))
+		if (!is_array($columns))
 			return;
-		
-		$this->ensureTable($table);
-		$fields=array();
+			
+	    $this->ensureTable($table);
+	    $fields=array();
 		$required=array('name','type','length');
-		
+			
 		foreach($columns as $column)
-        {
-        	if (array_intersect($required,array_keys($column))!==$required)
+	    {
+	        if (array_intersect($required,array_keys($column))!==$required)
 				return;
-        	
+	        	
 			if ($table->getColumn($column['name'])===null)
-        	{
-        		$type = ($column['type']=='integer')? $type='INT' : $type='VARCHAR';
-        		$null = (isset($column['null']) AND $column['null'])? 'NULL' : 'NOT NULL';
+	        {
+	        	$type = ($column['type']=='integer')? $type='INT' : $type='VARCHAR';
+	        	$null = (isset($column['null']) AND $column['null'])? 'NULL' : 'NOT NULL';
 				$default = (isset($column['default']) AND $column['default']|='None')? ($column['default']=='NULL' || $column['default']=='CURRENT_TIMESTAMP')? "DEFAULT ". $column['default']:"DEFAULT '".$column['default']."'" : '';
 				$comment = (isset($column['comment']) AND $column['comment']|='None')? "COMMENT '".$column['comment']."'" : '';
 				$fields[]= "ADD `".$column['name']."` ".$type."( ".$column['length']." ) ".$null. " ".$default." ".$comment;
-        	}
+	        }
 		}
 		$sql = "ALTER TABLE {$table->rawName} ".implode(', ',$fields);
 		//echo $sql;
 		$command=$this->_connection->createCommand($sql);
 		return $command;
 	}
-	
+		
 	
 }
 ?>
