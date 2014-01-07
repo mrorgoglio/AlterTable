@@ -1,5 +1,11 @@
 <?php
 
+	/**
+	* @author Salvo Di Mare
+	* @license GNU v2
+	* @version 0.1
+	*/
+	
 class AlterTableBehavior extends CBehavior{
     
 	private $owner;
