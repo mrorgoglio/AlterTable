@@ -21,7 +21,7 @@ The array must be in the form:
           'name'=>'column_name_1',
           'label'=>null,
           'key'=>null,
-          'type'=>string,
+          'type'=>'string',
           'length'=>255,
       },
       //column 2
@@ -29,7 +29,7 @@ The array must be in the form:
           'name'=>'column_name_2',
           'label'=>null,
           'key'=>null,
-          'type'=>integer,
+          'type'=>'integer',
           'length'=>10,
       },
       ...
@@ -77,14 +77,14 @@ Usage
           'name'=>'City',
           'label'=>null,
           'key'=>null,
-          'type'=>string,
+          'type'=>'string',
           'length'=>255,
         ),
         array(
           'name'=>'Email',
           'label'=>null,
           'key'=>true,
-          'type'=>string,
+          'type'=>'string',
           'length'=>255,
         ),
     );
